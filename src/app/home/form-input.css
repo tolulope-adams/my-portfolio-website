@@ -1,0 +1,17 @@
+.input {
+    @apply w-full text-base;
+    caret-color: #001845;
+}
+
+.input:focus {
+    @apply outline-none;
+}
+
+.textarea{
+    @apply w-full text-base;
+    caret-color: #001845;
+}
+
+.textarea:focus{
+    @apply outline-none;
+}

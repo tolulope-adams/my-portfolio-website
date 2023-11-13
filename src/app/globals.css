@@ -2,6 +2,69 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'Inter';
+  src: url('./asset/fonts/Inter/Inter-Thin.ttf');
+  font-weight: 100;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./asset/fonts/Inter/Inter-ExtraLight.ttf');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./asset/fonts/Inter/Inter-Light.ttf');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./asset/fonts/Inter/Inter-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./asset/fonts/Inter/Inter-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./asset/fonts/Inter/Inter-SemiBold.ttf');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./asset/fonts/Inter/Inter-Bold.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./asset/fonts/Inter/Inter-ExtraBold.ttf');
+  font-weight: 800;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Inter';
+  src: url('./asset/fonts/Inter/Inter-Black.ttf');
+  font-weight: 900;
+  font-style: normal;
+}
+
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
@@ -16,6 +79,7 @@
   }
 }
 
+
 body {
   color: rgb(var(--foreground-rgb));
   background: linear-gradient(
@@ -24,4 +88,24 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    font-family: Inter;
+}
+
+.bg-gradient {
+  background: linear-gradient(to bottom, #001233, #001845, #211565, #25177A);
+}
+
+.txt-gradient {
+  color: transparent;
+  background: linear-gradient(180deg, #001233 0%, #001845 35.94%, #211565 68.75%, #25177A 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+}
+
+.bg-pictonblue{
+  background: rgba(71, 181, 255, 0.30);
+}
+
+.txt-pictonblue{
+  color: rgba(71, 181, 255);
 }
