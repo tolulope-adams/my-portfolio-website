@@ -1,11 +1,36 @@
 .triangle {
-    width: 0;
-    height: 0;
-    border-left: 0.5rem solid transparent;
-    border-right: 0.5rem solid transparent;
-    border-bottom: 1rem solid #ff0000;
+  width: 0;
+  height: 0;
+  border-left: 0.5rem solid transparent;
+  border-right: 0.5rem solid transparent;
+  border-bottom: 1rem solid #ff0000;
 }
 
 .active {
-    background: linear-gradient(to bottom, #001233, #001845, #211565, #25177A);
+  background: linear-gradient(to bottom, #001233, #001845, #211565, #25177a);
+}
+
+.exp-container {
+  display: flex;
+  justify-content: space-between;
+  overflow-x: auto; /* Enable horizontal scrolling */
+}
+
+.main-container {
+  width: 32%;
+  box-sizing: border-box;
+  border-radius: 0.6rem;
+  padding: 2rem;
+  transition: transform 0.3s ease; /* Add a smooth transition effect */
+}
+
+/* Media Query for mobile screens */
+@media only screen and (max-width: 767px) {
+  .main-container {
+    width: 100%;
+    transform: translateX(0); /* Ensure it's visible on mobile */
+    margin-bottom: 10px;
+    min-width: fit-content;
+    margin-right: 1rem;
+  }
 }
