@@ -7,19 +7,9 @@ export default function Carousel() {
   const items = [
     {
       icon: require("../asset/icons/github.svg"),
-      title: "Full Stack Software Developer",
-      description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
-      tags: [
-        "Java",
-        "Kotlin",
-        "Flutter",
-        "Firebase",
-        "JUnit",
-        "Mockito",
-        "IntelliJ IDEA",
-        "Android Studio",
-      ],
+      title: "Mobile Developer",
+      description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.",
+      tags: ["Java", "Kotlin", "Flutter", "Firebase", "JUnit", "Mockito", "IntelliJ IDEA", "Android Studio"]
     },
     {
       icon: require("../asset/icons/github.svg"),
@@ -42,17 +32,11 @@ export default function Carousel() {
       title: "Data Analyst",
       description:
         "I enjoy deriving meaningful narratives from complex datasets, using critical thinking skills, statistical analysis, and visualization techniques",
-      tags: [
-        "Python",
-        "R",
-        "SQL",
-        "Micrsoft Excel",
-        "Power BI",
-        "Statistics",
-        "Data Storytelling",
+      tags: ["Python", "R", "SQL", "Micrsoft Excel", "Power BI", "Statistics", "Data Storytelling",
       ],
     },
   ];
+
 
   const touchStartX = useRef<number | null>(null);
   const touchEndX = useRef<number | null>(null);
@@ -69,6 +53,12 @@ export default function Carousel() {
     } else if (newIndex >= items.length) {
       newIndex = items.length - 1;
     }
+    if (carouselDivRef.current) {
+        const scrollableWidth = carouselDivRef.current.scrollWidth - carouselDivRef.current.clientWidth;
+        const scrollBy = (newIndex - activeIndex) * scrollableWidth / 2;
+        // const scrollBy = (percentage / 100) * scrollableWidth;
+        carouselDivRef.current.scrollLeft += scrollBy;
+      }
     setActiveIndex(newIndex);
   };
 
@@ -110,72 +100,37 @@ export default function Carousel() {
     }
   };
 
-  const divRef = useRef<HTMLDivElement>(null);
-  // gap of carousel items in percentage
-  const itemGap = 10;
+  const carouselDivRef = useRef(null);
+  const scrollHorizontally = (percentage: number) => {
+    if (carouselDivRef.current) {
+      const scrollableWidth = carouselDivRef.current.scrollWidth - carouselDivRef.current.clientWidth;
+      const scrollBy = (percentage / 100) * scrollableWidth;
+      carouselDivRef.current.scrollLeft += scrollBy;
+    }
+  };
 
   return (
-    /*     <div
-      ref={divRef}
-      onTouchStart={handleTouchStart}
-      onTouchMove={handleTouchMove}
-      onTouchEnd={handleTouchEnd}
-      className="w-full flex flex-col"
-    >
-      <div
-        className="flex justify-between"
-        style={{
-          transform: `translate(-${activeIndex * (itemGap + 100)}%)`,
-          transition: "transform 0.5s ease-in-out",
-        }}
-      >
-        {items.map((item, index) => {
-          return (
-            <CarouselItem
-              key={index}
-              icon={item.icon}
-              title={item.title}
-              description={item.description}
-              tags={item.tags}
-            />
-          );
-        })}
+    <div>
+        <div ref={carouselDivRef}  className="carousel">
+            {items.map((item, index) => (
+                <CarouselItem
+                    key={index}
+                    icon={item.icon}
+                    title={item.title}
+                    description={item.description}
+                    tags={item.tags}
+                />
+            ))}
+        </div>
+        <div className="carousel-indicator"
+        onTouchStart={handleTouchStart}
+        onTouchMove={handleTouchMove}
+        onTouchEnd={handleTouchEnd}
+        >
+            <div className="circle active" onClick={() => {updateIndex(0)}}></div>
+            <div className="circle" onClick={() => {updateIndex(1)}}></div>
+            <div className="circle" onClick={() => {updateIndex(2)}}></div>
       </div>
-
-      <div className="w-fit flex flex-row items-center gap-4 mx-auto z-10">
-        <span
-          className="triangle active"
-          onClick={() => {
-            updateIndex(0);
-          }}
-        ></span>
-        <span
-          className="w-4 h-4 rounded-2xl bg-red-600"
-          onClick={() => {
-            updateIndex(1);
-          }}
-        ></span>
-        <span
-          className="w-4 h-4 rounded bg-red-600"
-          onClick={() => {
-            updateIndex(2);
-          }}
-        ></span>
-      </div>
-    </div> */
-
-    <div className="exp-container">
-      {items.map((item, index) => {
-        return (
-          <CarouselItem
-            key={index}
-            icon={item.icon}
-            title={item.title}
-            description={item.description}
-            tags={item.tags}
-          />
-        );
-      })}
     </div>
   );
 }

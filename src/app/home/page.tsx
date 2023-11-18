@@ -21,9 +21,6 @@ export default function Home() {
                 <ConsoleText className="text-2xl text-center txt-gradient font-bold tracking-wider"
                     words={['Tolulope Adams', 'a Software Engineer', 'a Data Analyst', 'a Muslim']}
                 />
-                <div className="w-1/2 rounded-full">
-                    <Image className="w-full rounded-full" alt="Github" src={MyPicture} />
-                </div>
                 <div className="flex flex-row gap-8">
                     <a href="https://github.com/tolulope-adams" target="_blank" rel="noopener noreferrer">
                         <Image className="w-8 h-8" alt="Github" src={Github} />

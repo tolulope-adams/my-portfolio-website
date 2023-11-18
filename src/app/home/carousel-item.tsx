@@ -10,7 +10,7 @@ export default function CarouselItem(props: {
   tags: string[];
 }) {
   return (
-    <div className="main-container flex flex-col items-center justify-items-center p-10 rounded-full5 text-white bg-gradient">
+    <div className="carousel-item">
       <Image alt="My Logo" src={Logo} width={28} height={28} priority />
       <p className="uppercase text-center my-4 text-lg font-bold tracking-wider text-truncate wrap-text">
         {props.title}
